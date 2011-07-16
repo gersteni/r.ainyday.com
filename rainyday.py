@@ -1,28 +1,25 @@
 import cgi
+import os
 
 from google.appengine.api import users
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
+from google.appengine.ext.webapp import template
 
 class MainPage(webapp.RequestHandler):
     def get(self):
-        self.response.out.write("""
-          <html>
-             <body>
-               <form action="/register" method="post">                                             
-                <div><label>Email:</label><input type="text" name="email" /></div> 
-                <div><label>Zip code:</label><input type="text" name="zip"></div>
-                <div><input type="submit" value="Let me know"></div>                             
-              </form>
-             </body>
-          </html>""")
+        path = os.path.join(os.path.dirname(__file__), 'index.html')
+        self.response.out.write(template.render(path, {}))
 
 class Registration(webapp.RequestHandler):
     def post(self):
-        self.response.out.write('<html><body>You wrote:<pre>')
-        self.response.out.write(cgi.escape(self.request.get('email')))
-        self.response.out.write(cgi.escape(self.request.get('zip')))
-        self.response.out.write('</pre></body></html>')
+        vals = { 
+            'email': cgi.escape(self.request.get('email')),
+            'zip': cgi.escape(self.request.get('zip'))
+            }
+        path = os.path.join(os.path.dirname(__file__), 'done.html')
+        self.response.out.write(template.render(path, vals))
+
 
 application = webapp.WSGIApplication(
                                      [('/', MainPage),
