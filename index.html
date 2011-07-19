@@ -1,13 +1,29 @@
 <html>
   <head>
-    <title>r.ainyday - weather reports for the lazy</title>
+    <title>rainyday</title>
     <link href="css/style.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <form action="/register" method="post">                                             
-      <div><label>Email:</label><input type="text" name="email" /></div> 
-      <div><label>Zip code:</label><input type="text" name="zip"></div>
-      <div><input type="submit" value="Let me know"></div>                             
-    </form>
+    <div id="container">
+        <h1>weather reports for the lazy</h1>
+        <p>We will email you in the morning if it is (probably) going to rain. That's all there is to it.</p>
+
+        <form action="/register" method="post">                                             
+          <table>
+            <tr>
+              <td>Email</td>
+              <td>Zip</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><input type="text" name="email" /></td>
+              <td><input type="text" name="zip"></td>
+              <td><input type="submit" value="Let me know"></td>
+            </tr>
+           </table>
+        </form>
+
+    </div>
+
   </body>
 </html>
