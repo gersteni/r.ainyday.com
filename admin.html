@@ -1,0 +1,13 @@
+<html>
+  <body>
+    <h2>Admin stuff</h2>
+    
+    <p>Here's what's been submitted:</p>
+
+    <ul>
+      {% for watcher in watchers %}
+      <li>{{ watcher.email }}/{{ watcher.zip }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
