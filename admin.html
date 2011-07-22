@@ -1,5 +1,9 @@
-<html>
-  <body>
+{% extends "base.html" %}
+
+{% block title %}rainy day{% endblock %}
+
+{% block content %}
+
     <h2>Admin stuff</h2>
     
     <p>Here's what's been submitted:</p>
@@ -9,5 +13,5 @@
       <li>{{ watcher.email }}/{{ watcher.zip }}</li>
       {% endfor %}
     </ul>
-  </body>
-</html>
+
+{% endblock %}

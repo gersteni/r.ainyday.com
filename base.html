@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div id="container">
+        <h1>rainy day</h1>
+        <h3>weather alerts for the lazy</h3>
+        {% block content %}{% endblock %}
+
+
+
+        {% include "footer.html" %}
+
+    </div>
+
+  </body>
+</html>
