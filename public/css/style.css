@@ -2,7 +2,7 @@ body {
   font-family: Helvetica;
   font-size: 1.25em;
   padding-top: 2em;
-  background: url('rainy-day-b.jpg');
+  background: url('/img/rainy-day-a.jpg');
 }
 
 #container {
