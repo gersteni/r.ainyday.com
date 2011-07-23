@@ -1,17 +1,24 @@
 {% extends "base.html" %}
 
-{% block title %}rainy day{% endblock %}
+{% block title %}lazy weather{% endblock %}
 
 {% block content %}
 
-    <p>We email you in the morning if it'll (probably) rain.</p><p> That's all there is to it.</p>
+    <p>If it will rain, we'll email you in the morning. That's all you really need to know anyway.</p>
+    <!--
+    <ol>
+        <li>Sign up with your email address and ZIP code</li>
+        <li>Every morning we check the weather in your area</li>
+        <li>If it is going to rain, we will let you know</li>
 
+    </ol>
+    -->
+
+    <h2>sign up in seconds:</h2>
     <form action="/register" method="post">                                             
-      <div><label>Email Adress</label></div>
-      <div><input type="text" name="email" id="email-field" />
-      <div><label>ZIP code</label>
-      <div><input type="text" name="zip">
-      <div><input type="submit" value="Let me know">
+      <div>My email address is <input type="text" name="email" id="email-field" />, and</div>
+      <div>my ZIP code is <input type="text" name="zip">.</div>
+      <div><button type="submit">Sign Up</button></div>
     </form>
 
 {% endblock %}
