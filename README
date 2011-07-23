@@ -1,1 +1,3 @@
-weather reports for the lazy
+"weather reports for the lazy"
+
+This is the source code for a google app engine application. The idea is that we don't like to check the weather, but we don't want to be caught in the rain either. So you can put in your email address, and we'll email you in the morning, but only if it is going to rain.
