@@ -32,3 +32,15 @@ a {
   
   margin: 0 0 0 0;
 }
+
+#formholder {
+    text-align: center;
+}
+
+#formtable {
+    margin: 0 auto;
+}
+
+td.label {
+  align: right;
+}

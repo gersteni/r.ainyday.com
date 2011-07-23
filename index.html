@@ -4,7 +4,7 @@
 
 {% block content %}
 
-    <p>If it will rain, we'll email you in the morning. That's all you really need to know anyway.</p>
+    <p>A daily weather report by email, but only if it will rain.</p>
     <!--
     <ol>
         <li>Sign up with your email address and ZIP code</li>
@@ -14,13 +14,30 @@
     </ol>
     -->
 
+    <!--
     <h2>sign up in seconds:</h2>
     <form action="/register" method="post">                                             
       <div>My email address is <input type="text" name="email" id="email-field" />, and</div>
       <div>my ZIP code is <input type="text" name="zip">.</div>
-      <div><button type="submit">Sign Up</button></div>
+      <div><button type="submit">subscribe</button></div>
     </form>
+    -->
 
+    <div id="formholder">
+    <form action="/register" method="post">                                             
+        <table id="formtable">
+            <tr><td class="label">Email:</td><td><input type="text" name="email" id="email-field" /></td></tr>
+            <tr><td class="label">ZIP code:</td><td><input type="text" name="zip" id="zip-field" /></td></tr>
+            <tr><td></td><td><button type="submit">subscribe</button></td></tr>
+        </table>
+    </form>
+    </div>
+
+<h2>praise</h2>
+
+<p>"I'm too lazy to check the weather every day, but I hate getting rained on. Problem solved." - @idoh</p>
+
+<p>"An elegant solution to a common problem."  - @vegashacker</p>
 {% endblock %}
 
 
