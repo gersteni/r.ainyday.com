@@ -1,6 +1,5 @@
 body {
   font-family: Helvetica;
-  font-size: 1.25em;
   padding-top: 2em;
   background: url('/img/rainy-day-a.jpg');
 }
@@ -43,4 +42,13 @@ a {
 
 td.label {
   align: right;
+}
+
+
+body, input, button, table {
+  font-size: 24px;
+}
+
+input {
+    min-width: 15em;
 }
