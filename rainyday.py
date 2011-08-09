@@ -28,11 +28,18 @@ class Admin(webapp.RequestHandler):
         path = os.path.join(os.path.dirname(__file__), 'admin.html')
         self.response.out.write(template.render(path, vals))
 
+# really just for testing convenience
+class SignOut(webapp.RequestHandler):
+    def get(self):
+        vals = { 'sign_out_link' : users.create_logout_url('/') }
+        path = os.path.join(os.path.dirname(__file__), 'sign_out.html')
+        self.response.out.write(template.render(path, vals))
 
 application = webapp.WSGIApplication(
                                      [ ('/', MainPage),
                                        ('/register', Registration),
-                                       ('/admin', Admin) ],
+                                       ('/admin', Admin),
+                                       ('/signout', SignOut) ],
                                      debug=True)
 
 def main():

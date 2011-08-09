@@ -14,6 +14,10 @@ handlers:
 - url: /img
   static_dir: public/img
 
+- url: /admin
+  script: rainyday.py
+  login: admin
+
 - url: /.*
   script: rainyday.py
 
