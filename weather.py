@@ -12,5 +12,6 @@ def zipcode_fetch(zip_str):
         if len(forecasts) > 0:
             condition = forecasts[0].getElementsByTagName("condition")[0]
             forecast = condition.getAttribute("data")
+            return forecast
             
 

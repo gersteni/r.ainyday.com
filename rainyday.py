@@ -1,6 +1,7 @@
 import cgi
 import os
 from data import make_watcher, get_watchers
+from weather import *
 
 from google.appengine.api import users
 from google.appengine.ext import webapp
@@ -24,7 +25,7 @@ class Registration(webapp.RequestHandler):
 
 class Admin(webapp.RequestHandler):
     def get(self):
-        vals = { 'watchers' : get_watchers() }
+        vals = { 'watchers' : get_watchers(), 'helena_weather' : zipcode_fetch('59601') }
         path = os.path.join(os.path.dirname(__file__), 'admin.html')
         self.response.out.write(template.render(path, vals))
 

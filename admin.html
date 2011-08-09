@@ -5,7 +5,7 @@
 {% block content %}
 
     <h2>Admin stuff</h2>
-    
+
     <p>Here's what's been submitted:</p>
 
     <ul>
@@ -13,5 +13,8 @@
       <li>{{ watcher.email }}/{{ watcher.zip }}</li>
       {% endfor %}
     </ul>
+
+    <p>An example call to get weather forecast in Helena, Montana: 
+      <strong>"{{ helena_weather }}"</strong></p>
 
 {% endblock %}
