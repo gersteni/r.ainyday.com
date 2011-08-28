@@ -18,6 +18,10 @@ handlers:
   script: rainyday.py
   login: admin
 
+- url: /sweep
+  script: rainyday.py
+  login: admin
+
 - url: /.*
   script: rainyday.py
 

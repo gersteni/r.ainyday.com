@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}rainy day{% endblock %}
+
+{% block content %}
+
+    <h2>Weather Sweep</h2>
+
+    <table border="1">
+      <tr><th>Zip</th><th>Forecast</th><th>Umbrella?</th></tr>
+      {% for zip in zips %}
+      <tr><td>{{ zip.zip }}</td><td>{{ zip.forecast }}</td><td>{{ zip.is_rain }}</td></tr>
+      {% endfor %}
+    </table>
+
+    <br/>
+
+    <table border="1">
+      <tr><th>Emails we'd send out</th></tr>
+      {% for email in email_outs %}
+      <tr><td>{{ email }}</td></tr>
+      {% endfor %}
+    </table>
+
+{% endblock %}

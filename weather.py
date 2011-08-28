@@ -13,5 +13,6 @@ def zipcode_fetch(zip_str):
             condition = forecasts[0].getElementsByTagName("condition")[0]
             forecast = condition.getAttribute("data")
             return forecast
-            
 
+def is_rain(forecast):
+    return forecast != "Clear"

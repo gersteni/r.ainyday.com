@@ -1,5 +1,6 @@
 import cgi
 import os
+import logging
 from data import make_watcher, get_watchers
 from weather import *
 
@@ -29,6 +30,28 @@ class Admin(webapp.RequestHandler):
         path = os.path.join(os.path.dirname(__file__), 'admin.html')
         self.response.out.write(template.render(path, vals))
 
+class Sweep(webapp.RequestHandler):
+    def get(self):
+        ws = get_watchers()
+        zips = {}
+        for w in ws:
+            zips[str(w.zip)] = ""
+        for zip in zips:
+            zips[zip] = zipcode_fetch(zip)
+        for_template = []
+        for zip in zips:
+            forecast = zips[zip]
+            for_template.append({ 'zip' : zip, 'forecast' : forecast, 
+                                  'is_rain' : is_rain(forecast) })
+        # now find all the emails we would send to
+        email_outs = []
+        for w in ws:
+            if (is_rain(zips[str(w.zip)])):
+                email_outs.append(w.email)
+        vals = { 'zips' : for_template, 'email_outs' : email_outs }
+        path = os.path.join(os.path.dirname(__file__), 'sweep.html')
+        self.response.out.write(template.render(path, vals))
+
 # really just for testing convenience
 class SignOut(webapp.RequestHandler):
     def get(self):
@@ -40,6 +63,7 @@ application = webapp.WSGIApplication(
                                      [ ('/', MainPage),
                                        ('/register', Registration),
                                        ('/admin', Admin),
+                                       ('/sweep', Sweep),
                                        ('/signout', SignOut) ],
                                      debug=True)
 
